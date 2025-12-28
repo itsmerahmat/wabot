@@ -178,3 +178,9 @@ dist
 auth_session
 
 .env
+
+# sqlite database files
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
