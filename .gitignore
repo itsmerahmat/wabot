@@ -176,3 +176,5 @@ dist
 
 # auth_session file created by Baileys
 auth_session
+
+.env

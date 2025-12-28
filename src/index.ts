@@ -1,4 +1,5 @@
 import { startBaileysBot } from "./baileys";
+import { handleIncomingMessage } from "./bot/router";
 
 async function main() {
   await startBaileysBot((sock) => {
@@ -7,16 +8,9 @@ async function main() {
       if (type !== "notify") return;
 
       const msg = messages[0];
-      if (!msg?.message || msg.key.fromMe) return;
+      if (!msg) return;
 
-      const from = msg.key.remoteJid!;
-      const text = msg.message.conversation || msg.message?.extendedTextMessage?.text;
-
-      console.log(`📩 Message from ${from}:`, text);
-
-      if (text?.toLowerCase().includes("hi")) {
-        await sock.sendMessage(from, { text: "Hello there! 👋" });
-      }
+      await handleIncomingMessage(sock, msg);
     });
   });
 
