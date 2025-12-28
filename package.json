@@ -1,0 +1,20 @@
+{
+  "name": "wabot",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/qrcode": "^1.5.6",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc.9",
+    "pino": "^10.1.0",
+    "qrcode": "^1.5.4"
+  }
+}
