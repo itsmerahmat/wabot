@@ -13,8 +13,12 @@ function formatTime(date: Date): string {
 export const timeTrigger: Trigger = {
   name: "time",
   match: ({ text }) => JAM_REGEX.test(text),
-  handle: async ({ sock, from }) => {
+  handle: async ({ sock, from, msg }) => {
     const now = new Date();
-    await sock.sendMessage(from, { text: `Sekarang jam ${formatTime(now)}` });
+    await sock.sendMessage(
+      from,
+      { text: `Sekarang jam ${formatTime(now)}` },
+      { quoted: msg }
+    );
   }
 };
